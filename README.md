@@ -327,7 +327,7 @@ Images and GIFs can be added to comments, READMEs etc.:
 ![Alt Text](http://image_url.com/image.jpg)
 ```
 
-![Chuck Norris](http://gifs.joelglovier.com/chuck-norris/chuck-norris.gif)
+![Cat and Rabbit](http://i.imgur.com/PoBmL0W.gif)
 
 All images are cached on GitHub, so if your host goes down, the image will remain available.
 
@@ -382,7 +382,7 @@ Where `query` is the term you want to search, this then finds the last one and g
 ```bash
 $ git show :/typo
 ```
-![git show :/query](http://i.imgur.com/SA0oZbE.png)
+![git show :/query](http://i.imgur.com/icaGiNt.png)
 
 NOTE: Press `q` to quit.
 
