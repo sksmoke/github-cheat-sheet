@@ -9,28 +9,35 @@
 - [Hub - Gitラッパー](#hub---git%E3%83%A9%E3%83%83%E3%83%91%E3%83%BC)
 - [共同開発者との摩擦の軽減](#%E5%85%B1%E5%90%8C%E9%96%8B%E7%99%BA%E8%80%85%E3%81%A8%E3%81%AE%E6%91%A9%E6%93%A6%E3%81%AE%E8%BB%BD%E6%B8%9B)
 - [直前のブランチ](#%E7%9B%B4%E5%89%8D%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81)
-- [git.io](#gitio)
+- [Git.io](#gitio)
 - [Gists](#gists)
 - [キーボード・ショートカット](#%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88)
 - [コミットからイシューを閉じる](#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%8B%E3%82%89%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%BC%E3%82%92%E9%96%89%E3%81%98%E3%82%8B)
 - [プルリクエストのチェックアウト](#%E3%83%97%E3%83%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%A2%E3%82%A6%E3%83%88)
 - [イシューの相互リンク](#%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%BC%E3%81%AE%E7%9B%B8%E4%BA%92%E3%83%AA%E3%83%B3%E3%82%AF)
+- [開発参加のガイドライン](#%E9%96%8B%E7%99%BA%E5%8F%82%E5%8A%A0%E3%81%AE%E3%82%AC%E3%82%A4%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3)
 - [Markdownファイルでの構文強調](#markdown%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%A7%E3%81%AE%E6%A7%8B%E6%96%87%E5%BC%B7%E8%AA%BF)
 - [特定のユーザーによるコミット履歴](#%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AB%E3%82%88%E3%82%8B%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E5%B1%A5%E6%AD%B4)
-- [空のコミット](#%E7%A9%BA%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88)
+- [空のコミット :trollface:](#%E7%A9%BA%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88)
 - [ブランチ同士の比較](#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8C%E5%A3%AB%E3%81%AE%E6%AF%94%E8%BC%83)
 - [コードの指定行の強調](#%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E6%8C%87%E5%AE%9A%E8%A1%8C%E3%81%AE%E5%BC%B7%E8%AA%BF)
+- [GitHub Pagesでのメタデータとプラグインのサポート](#github-pages%E3%81%A7%E3%81%AE%E3%83%A1%E3%82%BF%E3%83%87%E3%83%BC%E3%82%BF%E3%81%A8%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88)
+- [差分の表示](#%E5%B7%AE%E5%88%86%E3%81%AE%E8%A1%A8%E7%A4%BA)
+  - [レンダリング済みの差分](#%E3%83%AC%E3%83%B3%E3%83%80%E3%83%AA%E3%83%B3%E3%82%B0%E6%B8%88%E3%81%BF%E3%81%AE%E5%B7%AE%E5%88%86)
+  - [マップ差分の可視化](#%E3%83%9E%E3%83%83%E3%83%97%E5%B7%AE%E5%88%86%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96)
+  - [差分表示の前後を表示](#%E5%B7%AE%E5%88%86%E8%A1%A8%E7%A4%BA%E3%81%AE%E5%89%8D%E5%BE%8C%E3%82%92%E8%A1%A8%E7%A4%BA)
 - [Emoji](#emoji)
-- [画像及びアニメーションGIF](#%E7%94%BB%E5%83%8F%E5%8F%8A%E3%81%B3%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3GIF)
+- [画像及びアニメーションGIF](#%E7%94%BB%E5%83%8F%E5%8F%8A%E3%81%B3%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3gif)
+  - [GitHub Wikiへの画像の添付](#gitHub-wiki%E3%81%B8%E3%81%AE%E7%94%BB%E5%83%8F%E3%81%AE%E6%B7%BB%E4%BB%98)
 - [素早く引用](#%E7%B4%A0%E6%97%A9%E3%81%8F%E5%BC%95%E7%94%A8)
 - [Gitステータスのスタイリング](#git%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%81%AE%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AA%E3%83%B3%E3%82%B0)
 - [Gitログのスタイリング](#git%E3%83%AD%E3%82%B0%E3%81%AE%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AA%E3%83%B3%E3%82%B0)
 - [コミットログの検索](#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%83%AD%E3%82%B0%E3%81%AE%E6%A4%9C%E7%B4%A2)
 - [マージ済みブランチ](#%E3%83%9E%E3%83%BC%E3%82%B8%E6%B8%88%E3%81%BF%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81)
 - [設定済みライセンスの追加](#%E8%A8%AD%E5%AE%9A%E6%B8%88%E3%81%BF%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%AE%E8%BF%BD%E5%8A%A0)
-- [TODOリスト](#todo%E3%83%AA%E3%82%B9%E3%83%88)
+- [タスクリスト](#%E3%82%BF%E3%82%B9%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88)
 - [相対リンク](#%E7%9B%B8%E5%AF%BE%E3%83%AA%E3%83%B3%E3%82%AF)
-- [推奨したい.gitconfig](#%E6%8E%A8%E5%A5%A8%E3%81%97%E3%81%9F%E3%81%84gitconfig)
+- [推奨したい`.gitconfig`](#%E6%8E%A8%E5%A5%A8%E3%81%97%E3%81%9F%E3%81%84gitconfig)
   - [エイリアス](#%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9)
   - [コマンドの自動修正](#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E8%87%AA%E5%8B%95%E4%BF%AE%E6%AD%A3)
   - [色設定](#%E8%89%B2%E8%A8%AD%E5%AE%9A)
@@ -67,11 +74,13 @@ $ hub clone tiimgreen/toc
 $ git clone https://github.com/tiimgreen/toc.git
 ```
 
+[*Hubが提供する便利な機能についてもっと詳しく*](https://github.com/github/hub#commands)
+
 ## 共同開発者との摩擦の軽減
 
 もし誰かに自分のプロジェクトの利用またはその開発に参加してもらいたい場合、まずはよくある質問に答えることから始めなければならないだろう。このプロジェクトはどういうものなのか？どうやって使うのか？どのように使っても良いのか？どうやれば開発に参加できるのか？どうやれば開発環境を用意できるのか？どうやって自分の加えた機能が既存の機能を破壊しないことが確認できるのか？
 
-[Friction](https://github.com/rafalchmiel/friction)はこういった一般的な質問に対しての答えが用意されているかをチェックしてくれるコマンドライン・ツールだ。例えば以下のような出力を得られる:
+[Friction](https://github.com/rafalchmiel/friction)はこういった[一般的な質問に対しての答え](https://github.com/rafalchmiel/friction/wiki)が用意されているかをチェックしてくれるコマンドライン・ツールだ。例えば以下のような出力を得られる:
 
 [![Friction output](http://i.imgur.com/4EgpWo4.png)](https://github.com/rafalchmiel/friction)
 
@@ -98,17 +107,25 @@ $ git checkout -
 
 [*Gitのブランチ操作についてもっと詳しく*](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
 
-## git.io
+## Git.io
 
-[git.io](http://git.io)はGitHubの提供するGitHub専用のシンプルな短縮URLサービスだ。
+[Git.io](http://git.io)はGitHubの提供するGitHub専用のシンプルな短縮URLサービスだ。cURLを使って利用することができる:
 
-[http://git.io/wO0xUg](http://git.io/wO0xUg)
+```bash
+$ curl -i http://git.io -F "url=https://github.com/..."
+HTTP/1.1 201 Created
+Location: http://git.io/abc123
+
+$ curl -i http://git.io/abc123
+HTTP/1.1 302 Found
+Location: https://github.com/...
+```
 
 [*Git.ioについてもっと詳しく*](https://github.com/blog/985-git-io-github-url-shortener)
 
 ## Gists
 
-[Gists](https://gist.github.com/)は少量のコード群を管理する最適な手段だ。ちゃんとしたリポジトリをいちいち作成する必要はない。
+[Gists](https://gist.github.com/)は少量のコード群を管理する最適な手段だ。ちゃんとしたリポジトリをいちいち作成する必要はない。GistのURLの最後に`.pibb`を付ける([例](https://gist.github.com/hail2u/9477708.pibb))と*HTMLのみ*のバージョンが表示されるので、そのソースは他のウェブサイトに貼り付けるにはもってこいだろう。
 
 簡単なものとはいえ、完全なGitリポジトリとして機能するため、以下のようにすれば普通のGitリポジトリと同じようにクローンすることができる:
 
@@ -128,7 +145,7 @@ $ git clone https://gist.github.com/tiimgreen/10545817
 
 `w`を押すとブランチ選択インターフェイスが起動する。
 
-`s`を押すとファイル検索フォームにフォーカスが当たる。
+`s`を押すとコマンド・バーにフォーカスが当たる。
 
 イシュー画面で`l`を押すとラベルの編集インターフェイスが開かれる。
 
@@ -201,6 +218,16 @@ $ git checkout origin/pr/42
 
 別のリポジトリのイシューの場合は`user_name/repo_name#ISSUE_NUMBER`とすれば良い（例: `tiimgreen/toc#12`）。
 
+![Cross-Link Issues](https://camo.githubusercontent.com/447e39ab8d96b553cadc8d31799100190df230a8/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f626c6f672f323031312f736563726574732f7265666572656e6365732e706e67)
+
+## 開発参加のガイドライン
+
+リポジトリのルートに`CONTRIBUTING`という名前のファイルを置くと、イシューやプルリクエストを作成しようとした時にそれへのリンクが表示されるようになる。
+
+![Contributing Guidelines](https://camo.githubusercontent.com/71995d6b0e620a9ef1ded00a04498241c69dd1bf/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f736b697463682f6973737565732d32303132303931332d3136323533392e6a7067)
+
+[*開発参加のガイドラインについてもっと詳しく*](https://github.com/blog/1184-contributing-guidelines)
+
 ## Markdownファイルでの構文強調
 
 例えばMarkdownファイルでRubyのコードを構文強調したいならば以下のようにする:
@@ -235,15 +262,13 @@ https://github.com/rails/rails/commits/master?author=dhh
 
 [*コミット・ビューの違いについてもっと詳しく*](https://help.github.com/articles/differences-between-commit-views)
 
-## 空のコミット
+## 空のコミット :trollface:
 
-`--allow-empty`オプションを付けると、コードの変化がなくてもコミットを作成することができる。
+`--allow-empty`オプションを付けると、コードの変化がなくてもコミットを作成することができる:
 
 ```bash
 $ git commit -m "Big-ass commit" --allow-empty
 ```
-
-![Trololol](http://img1.wikia.nocookie.net/__cb20130905205853/flylikeabird3/images/0/0c/Mexican_troll_face_by_mariodude12312-d5mtl9z.png)
 
 ## ブランチ同士の比較
 
@@ -295,6 +320,46 @@ https://github.com/rails/rails/blob/master/activemodel/lib/active_model.rb#L53-L
 
 ![Line Highlighting](http://i.imgur.com/8AhjrCz.png)
 
+## GitHub Pagesでのメタデータとプラグインのサポート
+
+Jekyllのページや投稿ではリポジトリの情報が`site.github`という名前空間に格納されており、例えば`{{ site.github.project_title }}`などと書けば表示することができる。
+
+The Jemoji and jekyll-mentions plugins enable [emoji](#emojis) and [@mentions](https://github.com/blog/821) in your Jekyll posts and pages to work just like you'd expect when interacting with a repository on GitHub.com.
+また、Jemojiとjekyll-mentionsというプラグインがインストールされているので、[Emoji](#emoji)や[@mentions](https://github.com/blog/821)はJekyllの投稿やページでGitHub.com上と同じように動作する。
+
+[*GitHub Pageでのメタデータとプラグインのサポートについてもっと詳しく*](Repository metadata and plugin support for GitHub Pages)
+
+## 差分の表示
+
+### レンダリング済みの差分表示
+
+Commits and pull requests including rendered documents supported by GitHub (e.g. Markdown) feature *source* and *rendered* views.
+コミットやプルリクエストにGitHubでレンダリングされて表示されるもの（例: Markdown）が含まれる場合、その*ソース*と*レンダリング済み*の両方の差分を見ることができる。
+
+![Source / Rendered view](https://github-images.s3.amazonaws.com/help/repository/rendered_prose_diff.png)
+
+レンダリングされた状態での差分を表示したい場合は「Rendered」ボタンをクリックする。レンダリング済みの差分表示では文章の追加や削除、編集がよりわかりやすい:
+
+![Rendered Prose Diffs](https://f.cloud.github.com/assets/17715/2003056/3997edb4-862b-11e3-90be-5e9586edecd7.png)
+
+[*レンダリング済みの差分表示についてもっと詳しく*](https://github.com/blog/1784-rendered-prose-diffs)
+
+### マップ差分の可視化
+
+コミットやプルリクエストにジオデータの変更が含まれている場合はいつも、GitHubではそのジオデータの変化を可視化してくれるだろう。
+
+[![Diffable Maps](https://f.cloud.github.com/assets/282759/2090660/63f2e45a-8e97-11e3-9d8b-d4c8078b004e.gif)](https://github.com/benbalter/congressional-districts/commit/2233c76ca5bb059582d796f053775d8859198ec5)
+
+[*マップ差分の可視化についてもっと詳しく*](https://github.com/blog/1772-diffable-more-customizable-maps)
+
+### 差分表示の前後を表示
+
+差分表示の行番号付近にある*展開*ボタンを使うと、その前後の行をクリックして表示させることができる。*展開*ボタンを押し続けることによってファイル全体を表示することもできるし、またこの機能はあらゆるGitHubの差分表示ビューに用意されている。
+
+![Expanding Context in Diffs](https://f.cloud.github.com/assets/22635/1610539/863c1f64-5584-11e3-82bf-151b406a272f.gif)
+
+[*差分表示の前後を表示についてもっと詳しく*](https://github.com/blog/1705-expanding-context-in-diffs)
+
 ## Emoji
 
 Emojiはプルリクエストやイシュー、READMEなどで`:name_of_emoji:`と書くと利用できる:
@@ -315,23 +380,36 @@ GitHubでサポートされているEmojiの完全なリストは[Emoji cheat sh
 
 GitHubで使われているEmojiのトップ5は以下の通りだ:
 
-1. :shipit: `:shipit:`
-2. :sparkles: `:sparkles:`
-3. :-1: `:-1:`
-4. :+1: `:+1:`
-5. :clap: `:clap:`
+1. :shipit: - `:shipit:`
+2. :sparkles: - `:sparkles:`
+3. :-1: - `:-1:`
+4. :+1: - `:+1:`
+5. :clap: - `:clap:`
 
 ## 画像及びアニメーションGIF
 
 画像やアニメーションGIFはコミットのコメントやREADMEなどで利用できる:
 
 ```
-![Alt Text](http://image_url.com/image.jpg)
+![Alt Text](http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif)
 ```
 
-![Cat and Rabbit](http://i.imgur.com/PoBmL0W.gif)
+![Peter don't care](http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif)
 
 あらゆる画像はGitHubでキャッシュされるので、画像のホスティング先が落ちていたとしても変わらず表示されるだろう。
+
+### GitHub Wikiへの画像の添付
+
+GitHub Wikiで画像を追加する方法がいくつかある。通常のMarkdown記法（前節を参照）はもちろん使える。しかしそれだけではなく、画像の幅と高さを指定する記法も使うことができる:
+
+```markdown
+[[ http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif | height = 100px ]]
+```
+
+こうすると以下のようになる:
+
+![Just a screenshot](http://i.imgur.com/J5bMf7S.png)
+
 
 ## 素早く引用
 
@@ -419,7 +497,7 @@ GitHub上でリポジトリを作成する時、あらかじめ設定されて�
 
 [*オープンソース・ライセンスについてもっと詳しく*](https://help.github.com/articles/open-source-licensing)
 
-## TODOリスト
+## タスクリスト
 
 イシューやプルリクエストでは以下のように（空白に注意）書くとチェックボックスを作成することができる:
 
@@ -429,7 +507,7 @@ GitHub上でリポジトリを作成する時、あらかじめ設定されて�
 - [ ] Sleep
 ```
 
-![TODO List](http://i.imgur.com/k2qZi56.png)
+![Task List](http://i.imgur.com/k2qZi56.png)
 
 これらチェックボックスにチェックが入れられると、同時にMarkdownソースも更新される:
 
@@ -456,7 +534,7 @@ Markdownファイルでリポジトリ内のコンテンツへ張る場合、相
 
 [*相対リンクについてもっと詳しく*](https://help.github.com/articles/relative-links-in-readmes)
 
-## 推奨したい.gitconfig
+## 推奨したい`.gitconfig`
 
 `.gitconfig`とはあらゆる設定が書き込まれるファイルだ。
 
