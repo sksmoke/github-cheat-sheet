@@ -27,6 +27,7 @@
 - [マージ済みブランチ](#%E3%83%9E%E3%83%BC%E3%82%B8%E6%B8%88%E3%81%BF%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81)
 - [設定済みライセンスの追加](#%E8%A8%AD%E5%AE%9A%E6%B8%88%E3%81%BF%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%AE%E8%BF%BD%E5%8A%A0)
 - [TODOリスト](#todo%E3%83%AA%E3%82%B9%E3%83%88)
+- [相対リンク](#%E7%9B%B8%E5%AF%BE%E3%83%AA%E3%83%B3%E3%82%AF)
 - [推奨したい.gitconfig](#%E6%8E%A8%E5%A5%A8%E3%81%97%E3%81%9F%E3%81%84gitconfig)
   - [エイリアス](#%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9)
   - [コマンドの自動修正](#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E8%87%AA%E5%8B%95%E4%BF%AE%E6%AD%A3)
@@ -108,6 +109,8 @@ $ git clone https://gist.github.com/tiimgreen/10545817
 `w`を押すとブランチ選択インターフェイスが起動する。
 
 `s`を押すとファイル検索フォームにフォーカスが当たる。
+
+イシュー画面で`l`を押すとラベルの編集インターフェイスが開かれる。
 
 __ファイルを参照している時__（例: `https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.md`)に`y`を押すと、参照している時の状態で固定されるURLに変更される。つまりそのファイルのコードが後に変化したとしても、そのURLでは今とまったく同じ状態で表示されるということだ。
 
@@ -233,6 +236,20 @@ https://github.com/rails/rails/compare/master@{1.day.ago}...master
 https://github.com/rails/rails/compare/master@{2014-10-04}...master
 ```
 masterブランチと特定の期間または日時との比較が行えるだろう。
+
+### フォークされたリポジトリ間でのブランチ比較
+
+GitHubでフォークされたリポジトリ同士でブランチを比較する場合、以下のようなURLを変更する:
+
+```
+https://github.com/user/repo/compare/{foreign-user}:{branch}...{own-branch}
+```
+
+例:
+
+```
+https://github.com/rails/rails/compare/byroot:idempotent-counter-caches...master
+```
 
 ## コードの指定行の強調
 
@@ -379,6 +396,19 @@ GitHub上でリポジトリを作成する時、あらかじめ設定されて�
 - [x] Do stuff
 - [ ] Sleep
 ```
+
+## 相対リンク
+
+Markdownファイルでリポジトリ内のコンテンツへ張る場合、[相対リンク](https://help.github.com/articles/relative-links-in-readmes)を利用することが推奨されている。
+
+```markdown
+[Link to a header](#awesome-section)
+
+[Link to a file](docs/readme)
+```
+
+絶対リンクはURLの変更（例: リポジトリのリネーム、ユーザー名の変更、プロジェクトのフォーク）により更新される。  
+相対リンクを利用すれば、そのままうまく機能するはずだ。
 
 ## 推奨したい.gitconfig
 
