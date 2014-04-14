@@ -7,6 +7,7 @@
 - [空白の無視](#%E7%A9%BA%E7%99%BD%E3%81%AE%E7%84%A1%E8%A6%96)
 - [リポジトリのクローン](#%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3)
 - [Hub - Gitラッパー](#hub---git%E3%83%A9%E3%83%83%E3%83%91%E3%83%BC)
+- [共同開発者との摩擦の軽減](#%E5%85%B1%E5%90%8C%E9%96%8B%E7%99%BA%E8%80%85%E3%81%A8%E3%81%AE%E6%91%A9%E6%93%A6%E3%81%AE%E8%BB%BD%E6%B8%9B)
 - [直前のブランチ](#%E7%9B%B4%E5%89%8D%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81)
 - [git.io](#gitio)
 - [Gists](#gists)
@@ -38,6 +39,8 @@
 
 GitHub上で差分ページを表示している時、そのURLに`?w=1`を加えると、空白の変化によるできた差分は表示されなくなり、コード上の変化だけを参照することができる。
 
+[*GitHubの秘密についてもっと詳しく*](https://github.com/blog/967-github-secrets)
+
 ## リポジトリのクローン
 
 リポジトリをクローンする時、URLの末尾の`.git`は無くても構わない。
@@ -45,6 +48,8 @@ GitHub上で差分ページを表示している時、そのURLに`?w=1`を加�
 ```bash
 $ git clone https://github.com/tiimgreen/github-cheat-sheet
 ```
+
+[*Gitの`clone`コマンドについてもっと詳しく*](http://git-scm.com/docs/git-clone)
 
 ## Hub - Gitラッパー
 
@@ -61,6 +66,14 @@ $ hub clone tiimgreen/toc
 ```bash
 $ git clone https://github.com/tiimgreen/toc.git
 ```
+
+## 共同開発者との摩擦の軽減
+
+もし誰かに自分のプロジェクトの利用またはその開発に参加してもらいたい場合、まずはよくある質問に答えることから始めなければならないだろう。このプロジェクトはどういうものなのか？どうやって使うのか？どのように使っても良いのか？どうやれば開発に参加できるのか？どうやれば開発環境を用意できるのか？どうやって自分の加えた機能が既存の機能を破壊しないことが確認できるのか？
+
+[Friction](https://github.com/rafalchmiel/friction)はこういった一般的な質問に対しての答えが用意されているかをチェックしてくれるコマンドライン・ツールだ。例えば以下のような出力を得られる:
+
+[![Friction output](http://i.imgur.com/4EgpWo4.png)](https://github.com/rafalchmiel/friction)
 
 ## 直前のブランチ
 
@@ -83,11 +96,15 @@ $ git checkout -
 # Switched to branch 'master'
 ```
 
+[*Gitのブランチ操作についてもっと詳しく*](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
+
 ## git.io
 
 [git.io](http://git.io)はGitHubの提供するGitHub専用のシンプルな短縮URLサービスだ。
 
 [http://git.io/wO0xUg](http://git.io/wO0xUg)
+
+[*Git.ioについてもっと詳しく*](https://github.com/blog/985-git-io-github-url-shortener)
 
 ## Gists
 
@@ -100,6 +117,8 @@ $ git clone https://gist.github.com/tiimgreen/10545817
 ```
 
 ![Gists](http://i.imgur.com/dULZXXo.png)
+
+[*Gistの作成についてもっと詳しく*](https://help.github.com/articles/creating-gists)
 
 ## キーボード・ショートカット
 
@@ -117,9 +136,11 @@ __ファイルを参照している時__（例: `https://github.com/tiimgreen/gi
 
 `?`を押すとそのページで使える全ショートカットが表示されるだろう。
 
+[*コマンドバーについてもっと詳しく*](https://help.github.com/articles/using-the-command-bar)
+
 ## コミットからイシューを閉じる
 
-あるコミットでイシューを解決した場合、コミットメッセージで`fix/fixes/fixed`または`close/closes/closed`に続けてイシュー番号を指定すると、指定イシューを閉じることができる。
+あるコミットでイシューを解決した場合、コミットメッセージで`fix/fixes/fixed`または`close/closes/closed`に続けてイシュー番号を指定すると、そのコミットがmasterブランチにpushされると同時に指定イシューが閉じられるだろう。
 
 ```bash
 $ git commit -m "Fix cock up, fixes #12"
@@ -128,6 +149,8 @@ $ git commit -m "Fix cock up, fixes #12"
 こうするとイシュー#12が閉じられ、閉じたイシューにはそのコミットへの参照が自動的に追加される。
 
 ![Closing Repo](http://i.imgur.com/URXFprQ.png)
+
+[*コミット・メッセージからイシューを閉じる方法についてもっと詳しく*](https://help.github.com/articles/closing-issues-via-commit-messages)
 
 ## プルリクエストのチェックアウト
 
@@ -170,6 +193,8 @@ $ git checkout origin/pr/42
     fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 ```
 
+[*プルリクエストのチェックアウトについてもっと詳しく*](https://help.github.com/articles/checking-out-pull-requests-locally)
+
 ## イシューの相互リンク
 
 同じリポジトリの違うイシューへリンクを張り参照させたい場合、`#`に続けてイシュー番号を指定する。そうすると自動的にリンクが作成されるだろう。
@@ -198,6 +223,8 @@ puts table.to_s
 
 GitHubでは[Linguist](https://github.com/github/linguist)を使って言語を判別し構文強調を行っている。構文強調がサポートされている言語の一覧は[言語定義YAMLファイル](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)を参照すればわかるだろう。
 
+[*GitHub Flavored Markdownについてもっと詳しく*](https://help.github.com/articles/github-flavored-markdown)
+
 ## 特定のユーザーによるコミット履歴
 
 特定のユーザーによるあるリポジトリへのコミット履歴のみを参照したい場合は、`?author=username`をURLの末尾に付ける。
@@ -205,6 +232,8 @@ GitHubでは[Linguist](https://github.com/github/linguist)を使って言語を�
 ```
 https://github.com/rails/rails/commits/master?author=dhh
 ```
+
+[*コミット・ビューの違いについてもっと詳しく*](https://help.github.com/articles/differences-between-commit-views)
 
 ## 空のコミット
 
@@ -237,6 +266,8 @@ https://github.com/rails/rails/compare/master@{1.day.ago}...master
 https://github.com/rails/rails/compare/master@{2014-10-04}...master
 ```
 masterブランチと特定の期間または日時との比較が行えるだろう。
+
+[*時間を指定してのブランチ比較についてもっと詳しく*](https://help.github.com/articles/comparing-commits-across-time)
 
 ### フォークされたリポジトリ間でのブランチ比較
 
@@ -298,7 +329,7 @@ GitHubで使われているEmojiのトップ5は以下の通りだ:
 ![Alt Text](http://image_url.com/image.jpg)
 ```
 
-![Chuck Norris](http://gifs.joelglovier.com/chuck-norris/chuck-norris.gif)
+![Cat and Rabbit](http://i.imgur.com/PoBmL0W.gif)
 
 あらゆる画像はGitHubでキャッシュされるので、画像のホスティング先が落ちていたとしても変わらず表示されるだろう。
 
@@ -307,6 +338,8 @@ GitHubで使われているEmojiのトップ5は以下の通りだ:
 イシューのスレッドで他の人のコメントを引用してコメントしたい場合、引用したい文章を選択した状態で`r`を押すと、ブロック引用の記法を使ってテキストエリアにコピーされる。
 
 ![Quick Quote](http://i.imgur.com/TzpMIOA.png)
+
+[*素早く引用する方法についてもっと詳しく*](https://github.com/blog/1399-quick-quotes)
 
 ## Gitステータスのスタイリング
 
@@ -324,6 +357,8 @@ $ git status -sb
 
 ![git status -sb](http://i.imgur.com/xNI1bT0.png)
 
+[*Gitの`status`コマンドについてもっと詳しく*](http://git-scm.com/docs/git-status)
+
 ## Gitログのスタイリング
 
 ```bash
@@ -333,6 +368,8 @@ $ git log --all --graph --decorate --oneline --abbrev-commit
 ![git log --all --graph --decorate --oneline --abbrev-commit](http://i.imgur.com/RUPycwI.png)
 
 注: これは[後述の手順](#%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9)に従ってエイリアスへ追加することもできる。
+
+[*Gitの`log`コマンドについてもっと詳しく*](http://git-scm.com/docs/git-log)
 
 ## コミットログの検索
 
@@ -348,7 +385,7 @@ $ git show :/query
 $ git show :/typo
 ```
 
-![git show :/query](http://i.imgur.com/SA0oZbE.png)
+![git show :/query](http://i.imgur.com/icaGiNt.png)
 
 注: 終了するには`q`を押す。
 
@@ -366,6 +403,8 @@ $ git branch --merged
 $ git branch --no-merged
 ```
 
+[*Gitの`branch`コマンドについてもっと詳しく*](http://git-scm.com/docs/git-branch)
+
 ## 設定済みライセンスの追加
 
 GitHub上でリポジトリを作成する時、あらかじめ設定されているライセンスを追加することもできる:
@@ -377,6 +416,8 @@ GitHub上でリポジトリを作成する時、あらかじめ設定されて�
 ![License](http://i.imgur.com/fTjQict.png)
 
 `.gitignore`も同じように作成時に追加することも、後で追加することもできる。
+
+[*オープンソース・ライセンスについてもっと詳しく*](https://help.github.com/articles/open-source-licensing)
 
 ## TODOリスト
 
@@ -398,9 +439,11 @@ GitHub上でリポジトリを作成する時、あらかじめ設定されて�
 - [ ] Sleep
 ```
 
+[*タスク・リストについてもっと詳しく*](https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments)
+
 ## 相対リンク
 
-Markdownファイルでリポジトリ内のコンテンツへ張る場合、[相対リンク](https://help.github.com/articles/relative-links-in-readmes)を利用することが推奨されている。
+Markdownファイルでリポジトリ内のコンテンツへ張る場合、相対リンクを利用することが推奨されている。
 
 ```markdown
 [Link to a header](#awesome-section)
@@ -410,6 +453,8 @@ Markdownファイルでリポジトリ内のコンテンツへ張る場合、[�
 
 絶対リンクはURLの変更（例: リポジトリのリネーム、ユーザー名の変更、プロジェクトのフォーク）により更新される。  
 相対リンクを利用すれば、そのままうまく機能するはずだ。
+
+[*相対リンクについてもっと詳しく*](https://help.github.com/articles/relative-links-in-readmes)
 
 ## 推奨したい.gitconfig
 
@@ -496,6 +541,8 @@ Gitの出力をカラフルにするには以下のような設定を加える�
 ```bash
 $ git config --global color.ui 1
 ```
+
+[*Gitの`config`コマンドについてもっと詳しく*](http://git-scm.com/docs/git-config)
 
 # 共有
 
