@@ -110,6 +110,8 @@ Pressing `w` will bring up the branch selector.
 
 Pressing `s` will select the search bar.
 
+Pressing `l` will edit labels on existing issues.
+
 Pressing `y` __when looking at a file__ (e.g. `https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.md`) will change your URL to one which, in effect, freezes the page you are looking at. If this code changes, you will still be able to see what you saw at that current time.
 
 To see all of the shortcuts for the current page press `?`.
@@ -235,6 +237,19 @@ https://github.com/rails/rails/compare/master@{1.day.ago}...master
 https://github.com/rails/rails/compare/master@{2014-10-04}...master
 ```
 which allows you to see the difference on the master branch up a set time ago or a specified date.
+
+### Compare branches across forked repositories
+
+To use GitHub to compare branches across forked repositories, change the URL to look like this:
+
+```
+https://github.com/user/repo/compare/{foreign-user}:{branch}...{own-branch}
+```
+
+eg.:
+```
+https://github.com/rails/rails/compare/byroot:idempotent-counter-caches...master
+```
 
 ## Line Highlighting in Repos
 
