@@ -27,9 +27,12 @@
     - [レンダリング済みの差分](#%E3%83%AC%E3%83%B3%E3%83%80%E3%83%AA%E3%83%B3%E3%82%B0%E6%B8%88%E3%81%BF%E3%81%AE%E5%B7%AE%E5%88%86)
     - [マップ差分の可視化](#%E3%83%9E%E3%83%83%E3%83%97%E5%B7%AE%E5%88%86%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96)
     - [差分表示の前後を表示](#%E5%B7%AE%E5%88%86%E8%A1%A8%E7%A4%BA%E3%81%AE%E5%89%8D%E5%BE%8C%E3%82%92%E8%A1%A8%E7%A4%BA)
+    - [プルリクエストの内容をDIFFまたはPATCH形式で取得](#%E3%83%97%E3%83%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92diff%E3%81%BE%E3%81%9F%E3%81%AFpatch%E5%BD%A2%E5%BC%8F%E3%81%A7%E5%8F%96%E5%BE%97)
   - [Hub](#hub)
   - [共同開発者との摩擦の軽減](#%E5%85%B1%E5%90%8C%E9%96%8B%E7%99%BA%E8%80%85%E3%81%A8%E3%81%AE%E6%91%A9%E6%93%A6%E3%81%AE%E8%BB%BD%E6%B8%9B)
   - [開発参加のガイドライン](#%E9%96%8B%E7%99%BA%E5%8F%82%E5%8A%A0%E3%81%AE%E3%82%AC%E3%82%A4%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3)
+  - [GitHub情報](#github%E6%83%85%E5%A0%B1)
+    - [GitHub Talks](#github-talks)
 - [Git](#git)
   - [直前のブランチ](#%E7%9B%B4%E5%89%8D%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81)
   - [プルリクエストのチェックアウト](#%E3%83%97%E3%83%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%A2%E3%82%A6%E3%83%88)
@@ -43,6 +46,8 @@
     - [エイリアス](#%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9)
     - [コマンドの自動修正](#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E8%87%AA%E5%8B%95%E4%BF%AE%E6%AD%A3)
     - [色設定](#%E8%89%B2%E8%A8%AD%E5%AE%9A)
+  - [Git情報](#git%E6%83%85%E5%A0%B1)
+    - [Git Books](#git-books)
 - [訳注](#%E8%A8%B3%E6%B3%A8)
 
 ## GitHub
@@ -57,6 +62,7 @@ GitHub上で差分ページを表示している時、そのURLに`?w=1`を加�
 ```
 https://github.com/rails/rails/commits/master?author=dhh
 ```
+![DHH commit history](http://i.imgur.com/mDWwuaY.png)
 
 [*コミット・ビューの違いについてもっと詳しく*](https://help.github.com/articles/differences-between-commit-views)
 
@@ -79,9 +85,11 @@ https://github.com/user/repo/compare/{range}
 `{range}`を`master...4-1-stable`に変更する。
 
 例えば:
+
 ```
 https://github.com/rails/rails/compare/master...4-1-stable
 ```
+![Rails branch compare example](http://i.imgur.com/0Z52X5Y.png)
 
 `{range}`には以下のように変更することもできる:
 
@@ -89,6 +97,7 @@ https://github.com/rails/rails/compare/master...4-1-stable
 https://github.com/rails/rails/compare/master@{1.day.ago}...master
 https://github.com/rails/rails/compare/master@{2014-10-04}...master
 ```
+![Another compare example](http://i.imgur.com/5dtzESz.png)
 
 するとmasterブランチと特定の期間または日時との比較が行えるだろう。
 
@@ -104,11 +113,17 @@ https://github.com/user/repo/compare/{foreign-user}:{branch}...{own-branch}
 例:
 
 ```
-https://github.com/rails/rails/compare/byroot:idempotent-counter-caches...master
+https://github.com/rails/rails/compare/byroot:master...master
 ```
 
+![Forked branch compare](http://i.imgur.com/Q1W6qcB.png)
+
 ### Gists
-[Gists](https://gist.github.com/)は少量のコード群を管理する最適な手段だ。ちゃんとしたリポジトリをいちいち作成する必要はない。GistのURLの最後に`.pibb`を付ける([例](https://gist.github.com/hail2u/9477708.pibb))と*HTMLのみ*のバージョンが表示されるので、そのソースは他のウェブサイトに貼り付けるにはもってこいだろう。
+[Gists](https://gist.github.com/)は少量のコード群を管理する最適な手段だ。ちゃんとしたリポジトリをいちいち作成する必要はない。
+
+![Gist](http://i.imgur.com/VkKI1LC.png?1)
+
+GistのURLの最後に`.pibb`を付ける([例](https://gist.github.com/hail2u/9477708.pibb))と*HTMLのみ*のバージョンが表示されるので、そのソースは他のウェブサイトに貼り付けるにはもってこいだろう。
 
 簡単なものとはいえ、完全なGitリポジトリとして機能するため、以下のようにすれば普通のGitリポジトリと同じようにクローンすることができる:
 
@@ -121,7 +136,11 @@ $ git clone https://gist.github.com/tiimgreen/10545817
 [*Gistの作成についてもっと詳しく*](https://help.github.com/articles/creating-gists)
 
 ### Git.io
-[Git.io](http://git.io)はGitHubの提供するGitHub専用のシンプルな短縮URLサービスだ。cURLを使って利用することができる:
+[Git.io](http://git.io)はGitHubの提供するGitHub専用のシンプルな短縮URLサービスだ。
+
+![Git.io](http://i.imgur.com/6JUfbcG.png?1)
+
+cURLを使って利用することができる:
 
 ```bash
 $ curl -i http://git.io -F "url=https://github.com/..."
@@ -145,6 +164,8 @@ Location: https://github.com/...
  - __ファイルを参照している時__（例: `https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.md`)に`y`を押すと、参照している時の状態で固定されるURLに変更される。つまりそのファイルのコードが後に変化したとしても、そのURLでは今とまったく同じ状態で表示されるということだ。
 
 `?`を押すとそのページで使える全ショートカットが表示されるだろう。
+
+![Keyboard shortcuts](http://i.imgur.com/y5ZfNEm.png)
 
 [*コマンドバーについてもっと詳しく*](https://help.github.com/articles/using-the-command-bar)
 
@@ -331,6 +352,14 @@ Jekyllのページや投稿ではリポジトリの情報が`site.github`とい�
 
 [*差分表示の前後を表示についてもっと詳しく*](https://github.com/blog/1705-expanding-context-in-diffs)
 
+#### プルリクエストの内容をDIFFまたはPATCH形式で取得
+プルリクエストによる差分はそのURLの末尾に`.diff`または`.patch`を追加すると、それぞれの形式で取得することができる:
+
+*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15>
+*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15.diff> - DIFF形式
+*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15.patch> - PATCH形式
+
+
 ### Hub
 [Hub](https://github.com/github/hub)はGitのラッパーとして機能するコマンドライン・ツールで、これを利用するとGitHubをコマンドラインからとても簡単に扱えるようになる。
 
@@ -361,6 +390,24 @@ $ git clone https://github.com/tiimgreen/toc.git
 ![Contributing Guidelines](https://camo.githubusercontent.com/71995d6b0e620a9ef1ded00a04498241c69dd1bf/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f736b697463682f6973737565732d32303132303931332d3136323533392e6a7067)
 
 [*開発参加のガイドラインについてもっと詳しく*](https://github.com/blog/1184-contributing-guidelines)
+
+### GitHub Resources
+| Title | Link |
+| ----- | ---- |
+| GitHub Explore | https://github.com/explore |
+| GitHub Blog | https://github.com/blog |
+| GitHub Help | https://help.github.com/ |
+| GitHub Training | http://training.github.com/ |
+| GitHub Developer | https://developer.github.com/ |
+
+#### GitHub Talks
+| Title | Link |
+| ----- | ---- |
+| How GitHub Uses GitHub to Build GitHub | https://www.youtube.com/watch?v=qyz3jkOBbQY |
+| Introduction to Git with Scott Chacon of GitHub | https://www.youtube.com/watch?v=ZDR433b0HJY |
+| How GitHub No Longer Works | https://www.youtube.com/watch?v=gXD1ITW7iZI |
+| Git and GitHub Secrets | https://www.youtube.com/watch?v=Foz9yvMkvlA |
+| More Git and GitHub Secrets | https://www.youtube.com/watch?v=p50xsL-iVgU |
 
 ## Git
 ### 直前のブランチ
@@ -604,6 +651,32 @@ $ git config --global color.ui 1
 ```
 
 [*Gitの`config`コマンドについてもっと詳しく*](http://git-scm.com/docs/git-config)
+
+### Git Resources
+| Title | Link |
+| ----- | ---- |
+| Official Git Site | http://git-scm.com/ |
+| Official Git Video Tutorials | http://git-scm.com/videos |
+| Code School Try Git | http://try.github.com/ |
+| Introductory Reference & Tutorial for Git | http://gitref.org/ |
+| Official Git Tutorial | http://git-scm.com/docs/gittutorial |
+| Everyday Git | http://git-scm.com/docs/everyday |
+| Git Immersion | http://gitimmersion.com/ |
+| Ry's Git Tutorial | http://rypress.com/tutorials/git/index.html |
+| Git for Designer | http://hoth.entp.com/output/git_for_designers.html |
+| Git for Computer Scientists | http://eagain.net/articles/git-for-computer-scientists/ |
+| Git Magic | http://www-cs-students.stanford.edu/~blynn/gitmagic/ |
+
+#### Git Books
+| Title | Link |
+| ----- | ---- |
+| Pragmatic Version Control Using Git | http://www.pragprog.com/titles/tsgit/pragmatic-version-control-using-git |
+| Pro Git | http://git-scm.com/book |
+| Git Internals Peepcode | http://peepcode.com/products/git-internals-pdf |
+| Git in the Trenches | http://cbx33.github.com/gitt/ |
+| Version Control with Git | http://www.amazon.com/Version-Control-Git-collaborative-development/dp/1449316387 |
+| Pragmatic Guide to Git | http://www.pragprog.com/titles/pg_git/pragmatic-guide-to-git |
+| Git: Version Control for Everyone | http://www.packtpub.com/git-version-control-for-everyone/book |
 
 ## 訳注
 これは[GitHub Cheat Sheet](https://github.com/tiimgreen/github-cheat-sheet)の日本語訳である。
