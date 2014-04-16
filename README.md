@@ -27,9 +27,12 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
     - [Rendered prose Diffs](#rendered-prose-diffs)
     - [Diffable Maps](#diffable-maps)
     - [Expanding Context in Diffs](#expanding-context-in-diffs)
+    - [Getting content of Pull Request in Diff or Patch format](#getting-content-of-pull-request-in-diff-or-patch-format)
   - [Hub](#hub)
   - [Decreasing Contributor Friction](#decreasing-contributor-friction)
   - [Contributing Guidelines](#contributing-guidelines)
+  - [GitHub Resources](#github-resources)
+    - [GitHub Talks](#github-talks)
  - [Git](#git)
   - [Previous Branch](#previous-branch)
   - [Checking out Pull Requests](#checking-out-pull-requests)
@@ -43,6 +46,8 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
     - [Aliases](#aliases)
     - [Auto-Correct](#auto-correct)
     - [Color](#color)
+  - [Git Resources](#git-resources)
+    - [Git Books](#git-books)
 
 ## GitHub
 ### Ignore Whitespace
@@ -56,6 +61,8 @@ To view all commits on a repo by author add `?author=username` to the URL.
 ```
 https://github.com/rails/rails/commits/master?author=dhh
 ```
+
+![DHH commit history](http://i.imgur.com/mDWwuaY.png)
 
 [*Read more about the differences between commits views.*](https://help.github.com/articles/differences-between-commit-views)
 
@@ -78,9 +85,12 @@ https://github.com/user/repo/compare/{range}
 Where `{range} = master...4-1-stable`
 
 For example:
+
 ```
 https://github.com/rails/rails/compare/master...4-1-stable
 ```
+
+![Rails branch compare example](http://i.imgur.com/0Z52X5Y.png)
 
 `{range}` can be changed to things like:
 
@@ -88,6 +98,8 @@ https://github.com/rails/rails/compare/master...4-1-stable
 https://github.com/rails/rails/compare/master@{1.day.ago}...master
 https://github.com/rails/rails/compare/master@{2014-10-04}...master
 ```
+
+![Another compare example](http://i.imgur.com/5dtzESz.png)
 
 ...which allows you to see the difference on the master branch up a set time ago or a specified date.
 
@@ -103,11 +115,17 @@ https://github.com/user/repo/compare/{foreign-user}:{branch}...{own-branch}
 For example:
 
 ```
-https://github.com/rails/rails/compare/byroot:idempotent-counter-caches...master
+https://github.com/rails/rails/compare/byroot:master...master
 ```
 
+![Forked branch compare](http://i.imgur.com/Q1W6qcB.png)
+
 ### Gists
-[Gists](https://gist.github.com/) are an easy way to work with small bits of code without creating a fully fledged repository. Add `.pibb` to the end of any Gist URL ([like this](https://gist.github.com/tiimgreen/10545817.pibb)) in order to get the *HTML only* version suitable for embedding in any other site.
+[Gists](https://gist.github.com/) are an easy way to work with small bits of code without creating a fully fledged repository.
+
+![Gist](http://i.imgur.com/VkKI1LC.png?1)
+
+Add `.pibb` to the end of any Gist URL ([like this](https://gist.github.com/tiimgreen/10545817.pibb)) in order to get the *HTML only* version suitable for embedding in any other site.
 
 Gists can be treated as a full repository so they can be cloned like any other:
 
@@ -120,7 +138,11 @@ $ git clone https://gist.github.com/tiimgreen/10545817
 [*Read more about creating gists.*](https://help.github.com/articles/creating-gists)
 
 ### Git.io
-[Git.io](http://git.io) is a simple URL shortener for GitHub. You can also use it via pure HTTP using Curl:
+[Git.io](http://git.io) is a simple URL shortener for GitHub.
+
+![Git.io](http://i.imgur.com/6JUfbcG.png?1)
+
+You can also use it via pure HTTP using Curl:
 
 ```bash
 $ curl -i http://git.io -F "url=https://github.com/..."
@@ -143,7 +165,9 @@ When on a repository page, keyboard shortcuts allow you to navigate easily.
  - Pressing `l` will edit labels on existing Issues.
  - Pressing `y` **when looking at a file** (e.g. `https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.md`) will change your URL to one which, in effect, freezes the page you are looking at. If this code changes, you will still be able to see what you saw at that current time.
 
-To see all of the shortcuts for the current page press `?`.
+To see all of the shortcuts for the current page press `?`:
+
+![Keyboard shortcuts](http://i.imgur.com/y5ZfNEm.png)
 
 [*Read more about using the Command Bar.*](https://help.github.com/articles/using-the-command-bar)
 
@@ -330,6 +354,18 @@ Using the *unfold* button in the gutter of a diff, you can reveal additional lin
 
 [*Read more about expanding context in diffs.*](https://github.com/blog/1705-expanding-context-in-diffs)
 
+#### Getting content of Pull Request in Diff or Patch format
+
+You can get the diff of viewed pull request by adding `.diff` or `.patch`
+to the end of URL. For example:
+
+*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15>
+*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15.diff> - the pull
+    request in DIFF format
+*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15.patch> - the pull
+    request as PATCH
+
+
 ### Hub
 [Hub](https://github.com/github/hub) is a command line Git wrapper that gives you extra features and commands that make working with GitHub easier.
 
@@ -360,6 +396,24 @@ Adding a `CONTRIBUTING` file to the root of your repository will add a link to y
 ![Contributing Guidelines](https://camo.githubusercontent.com/71995d6b0e620a9ef1ded00a04498241c69dd1bf/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f736b697463682f6973737565732d32303132303931332d3136323533392e6a7067)
 
 [*Read more about contributing guidelines.*](https://github.com/blog/1184-contributing-guidelines)
+
+### GitHub Resources
+| Title | Link |
+| ----- | ---- |
+| GitHub Explore | https://github.com/explore |
+| GitHub Blog | https://github.com/blog |
+| GitHub Help | https://help.github.com/ |
+| GitHub Training | http://training.github.com/ |
+| GitHub Developer | https://developer.github.com/ |
+
+#### GitHub Talks
+| Title | Link |
+| ----- | ---- |
+| How GitHub Uses GitHub to Build GitHub | https://www.youtube.com/watch?v=qyz3jkOBbQY |
+| Introduction to Git with Scott Chacon of GitHub | https://www.youtube.com/watch?v=ZDR433b0HJY |
+| How GitHub No Longer Works | https://www.youtube.com/watch?v=gXD1ITW7iZI |
+| Git and GitHub Secrets | https://www.youtube.com/watch?v=Foz9yvMkvlA |
+| More Git and GitHub Secrets | https://www.youtube.com/watch?v=p50xsL-iVgU |
 
 ## Git
 ### Previous Branch
@@ -603,3 +657,29 @@ $ git config --global color.ui 1
 ```
 
 [*Read more about the Git `config` command.*](http://git-scm.com/docs/git-config)
+
+### Git Resources
+| Title | Link |
+| ----- | ---- |
+| Official Git Site | http://git-scm.com/ |
+| Official Git Video Tutorials | http://git-scm.com/videos |
+| Code School Try Git | http://try.github.com/ |
+| Introductory Reference & Tutorial for Git | http://gitref.org/ |
+| Official Git Tutorial | http://git-scm.com/docs/gittutorial |
+| Everyday Git | http://git-scm.com/docs/everyday |
+| Git Immersion | http://gitimmersion.com/ |
+| Ry's Git Tutorial | http://rypress.com/tutorials/git/index.html |
+| Git for Designer | http://hoth.entp.com/output/git_for_designers.html |
+| Git for Computer Scientists | http://eagain.net/articles/git-for-computer-scientists/ |
+| Git Magic | http://www-cs-students.stanford.edu/~blynn/gitmagic/ |
+
+#### Git Books
+| Title | Link |
+| ----- | ---- |
+| Pragmatic Version Control Using Git | http://www.pragprog.com/titles/tsgit/pragmatic-version-control-using-git |
+| Pro Git | http://git-scm.com/book |
+| Git Internals Peepcode | http://peepcode.com/products/git-internals-pdf |
+| Git in the Trenches | http://cbx33.github.com/gitt/ |
+| Version Control with Git | http://www.amazon.com/Version-Control-Git-collaborative-development/dp/1449316387 |
+| Pragmatic Guide to Git | http://www.pragprog.com/titles/pg_git/pragmatic-guide-to-git |
+| Git: Version Control for Everyone | http://www.packtpub.com/git-version-control-for-everyone/book |
