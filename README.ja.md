@@ -14,6 +14,7 @@
   - [コードの指定行の強調](#%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E6%8C%87%E5%AE%9A%E8%A1%8C%E3%81%AE%E5%BC%B7%E8%AA%BF)
   - [コミットからイシューを閉じる](#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%8B%E3%82%89%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%BC%E3%82%92%E9%96%89%E3%81%98%E3%82%8B)
   - [イシューの相互リンク](#%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%BC%E3%81%AE%E7%9B%B8%E4%BA%92%E3%83%AA%E3%83%B3%E3%82%AF)
+  - [プルリクエストでのCI結果の表示](#%E3%83%97%E3%83%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AEci%E7%B5%90%E6%9E%9C%E3%81%AE%E8%A1%A8%E7%A4%BA)
   - [Markdownファイルでの構文強調](#markdown%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%A7%E3%81%AE%E6%A7%8B%E6%96%87%E5%BC%B7%E8%AA%BF)
   - [Emoji](#emoji)
   - [画像及びアニメーションGIF](#%E7%94%BB%E5%83%8F%E5%8F%8A%E3%81%B3%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3gif)
@@ -35,6 +36,7 @@
     - [GitHub Talks](#github-talks)
 - [Git](#git)
   - [直前のブランチ](#%E7%9B%B4%E5%89%8D%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81)
+  - [空白の削除](#%E7%A9%BA%E7%99%BD%E3%81%AE%E5%89%8A%E9%99%A4)
   - [プルリクエストのチェックアウト](#%E3%83%97%E3%83%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%A2%E3%82%A6%E3%83%88)
   - [空のコミット :trollface:](#%E7%A9%BA%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88-trollface)
   - [Gitステータスのスタイリング](#git%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%81%AE%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AA%E3%83%B3%E3%82%B0)
@@ -53,6 +55,8 @@
 ## GitHub
 ### 空白の無視
 GitHub上で差分ページを表示している時、そのURLに`?w=1`を加えると、空白の変化によるできた差分は表示されなくなり、コード上の変化だけを参照することができる。
+
+![Diff without whitespace](https://camo.githubusercontent.com/797184940defadec00393e6559b835358a863eeb/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f626c6f672f323031312f736563726574732f776869746573706163652e706e67)
 
 [*GitHubの秘密についてもっと詳しく*](https://github.com/blog/967-github-secrets)
 
@@ -97,6 +101,9 @@ https://github.com/rails/rails/compare/master...4-1-stable
 https://github.com/rails/rails/compare/master@{1.day.ago}...master
 https://github.com/rails/rails/compare/master@{2014-10-04}...master
 ```
+
+*日付の形式は`YYYY-DD-MM`だ。*
+
 ![Another compare example](http://i.imgur.com/5dtzESz.png)
 
 するとmasterブランチと特定の期間または日時との比較が行えるだろう。
@@ -199,6 +206,13 @@ $ git commit -m "Fix cock up, fixes #12"
 別のリポジトリのイシューの場合は`user_name/repo_name#ISSUE_NUMBER`とすれば良い（例: `tiimgreen/toc#12`）。
 
 ![Cross-Link Issues](https://camo.githubusercontent.com/447e39ab8d96b553cadc8d31799100190df230a8/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f626c6f672f323031312f736563726574732f7265666572656e6365732e706e67)
+
+### プルリクエストでのCI結果の表示
+適切に設定を行えばプルリクエストを受け取るたびに、通常のコミットと同じように[Travis CI](https://travis-ci.org/)がそのプルリクエストをビルドするだろう。どう設定するかは[Travis CI: Getting started](http://docs.travis-ci.com/user/getting-started/)を読むと良い。
+
+[![Travic CI status](https://cloud.githubusercontent.com/assets/1687642/2700187/3a88838c-c410-11e3-9a46-e65e2a0458cd.png)](https://github.com/octokit/octokit.rb/pull/452)
+
+[*コミット・ステータスAPIについてもっと詳しく*](https://github.com/blog/1227-commit-status-api)
 
 ### Markdownファイルでの構文強調
 例えばMarkdownファイルでRubyのコードを構文強調したいならば以下のようにする:
@@ -324,7 +338,7 @@ Jekyllのページや投稿ではリポジトリの情報が`site.github`とい�
 
 また、Jemojiとjekyll-mentionsというプラグインがインストールされているので、[Emoji](#emoji)や[@mentions](https://github.com/blog/821)はJekyllの投稿やページでGitHub.com上と同じように動作する。
 
-[*GitHub Pageでのメタデータとプラグインのサポートについてもっと詳しく*](Repository metadata and plugin support for GitHub Pages)
+[*GitHub Pageでのメタデータとプラグインのサポートについてもっと詳しく*](https://github.com/blog/1797-repository-metadata-and-plugin-support-for-github-pages)
 
 ### 差分の表示
 #### レンダリング済みの差分表示
@@ -353,11 +367,34 @@ Jekyllのページや投稿ではリポジトリの情報が`site.github`とい�
 [*差分表示の前後を表示についてもっと詳しく*](https://github.com/blog/1705-expanding-context-in-diffs)
 
 #### プルリクエストの内容をDIFFまたはPATCH形式で取得
-プルリクエストによる差分はそのURLの末尾に`.diff`または`.patch`を追加すると、それぞれの形式で取得することができる:
+プルリクエストによる差分はそのURLの末尾に`.diff`または`.patch`を追加すると、それぞれの形式で取得することができる。例えば:
 
-*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15>
-*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15.diff> - DIFF形式
-*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15.patch> - PATCH形式
+```
+https://github.com/tiimgreen/github-cheat-sheet/pull/15
+https://github.com/tiimgreen/github-cheat-sheet/pull/15.diff
+https://github.com/tiimgreen/github-cheat-sheet/pull/15.patch
+```
+
+拡張子`.diff`を追加した場合、このようなプレーンテキストで表示されるだろう:
+
+```
+diff --git a/README.md b/README.md
+index 88fcf69..8614873 100644
+--- a/README.md
++++ b/README.md
+@@ -28,6 +28,7 @@ All the hidden and not hidden features of Git and GitHub. This cheat sheet was i
+ - [Merged Branches](#merged-branches)
+ - [Quick Licensing](#quick-licensing)
+ - [TODO Lists](#todo-lists)
++- [Relative Links](#relative-links)
+ - [.gitconfig Recommendations](#gitconfig-recommendations)
+     - [Aliases](#aliases)
+     - [Auto-correct](#auto-correct)
+@@ -381,6 +382,19 @@ When they are clicked, they will be updated in the pure Markdown:
+ - [ ] Sleep
+
+(...)
+```
 
 
 ### Hub
@@ -425,6 +462,21 @@ $ git checkout -
 ```
 
 [*Gitのブランチ操作についてもっと詳しく*](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
+
+### 空白の削除
+Gitの`stripspace`コマンドは以下の作業を行う:
+
+- 行末の空白文字の削除
+- 空白行の取りまとめ
+- ファイル末尾への改行の追加
+
+このコマンドを呼ぶ時はファイルを渡さねばならない。例:
+
+```bash
+$ git stripspace < README.md
+```
+
+[*Gitの`stripspace`コマンドについてもっと詳しく*](http://git-scm.com/docs/git-stripspace)
 
 ### プルリクエストのチェックアウト
 プルリクエストをローカル・リポジトリへチェックアウトするには、まず以下のようにコマンドを実行しその変更を取り込む:
