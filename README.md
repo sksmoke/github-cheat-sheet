@@ -14,6 +14,7 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
   - [Line Highlighting in Repositories](#line-highlighting-in-repositories)
   - [Closing Issues via Commit Messages](#closing-issues-via-commit-messages)
   - [Cross-Link Issues](#cross-link-issues)
+  - [CI Status on Pull Requests](#ci-status-on-pull-requests)
   - [Syntax Highlighting in Markdown Files](#syntax-highlighting-in-markdown-files)
   - [Emojis](#emojis)
   - [Images/GIFs](#imagesgifs)
@@ -27,7 +28,7 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
     - [Rendered prose Diffs](#rendered-prose-diffs)
     - [Diffable Maps](#diffable-maps)
     - [Expanding Context in Diffs](#expanding-context-in-diffs)
-    - [Getting content of Pull Request in Diff or Patch format](#getting-content-of-pull-request-in-diff-or-patch-format)
+    - [Diff or Patch of Pull Request](#diff-or-patch-of-pull-request)
   - [Hub](#hub)
   - [Decreasing Contributor Friction](#decreasing-contributor-friction)
   - [Contributing Guidelines](#contributing-guidelines)
@@ -35,6 +36,7 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
     - [GitHub Talks](#github-talks)
  - [Git](#git)
   - [Previous Branch](#previous-branch)
+  - [Stripspace](#stripspace)
   - [Checking out Pull Requests](#checking-out-pull-requests)
   - [Empty Commits :trollface:](#empty-commits-trollface)
   - [Styled Git Status](#styled-git-status)
@@ -52,6 +54,8 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
 ## GitHub
 ### Ignore Whitespace
 Adding `?w=1` to any diff URL will remove any changes only in whitespace, enabling you to see only that code that has changed.
+
+![Diff without whitespace](https://camo.githubusercontent.com/797184940defadec00393e6559b835358a863eeb/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f626c6f672f323031312f736563726574732f776869746573706163652e706e67)
 
 [*Read more about GitHub secrets.*](https://github.com/blog/967-github-secrets)
 
@@ -98,6 +102,8 @@ https://github.com/rails/rails/compare/master...4-1-stable
 https://github.com/rails/rails/compare/master@{1.day.ago}...master
 https://github.com/rails/rails/compare/master@{2014-10-04}...master
 ```
+
+*Dates are in the format `YYYY-DD-MM`*
 
 ![Another compare example](http://i.imgur.com/5dtzESz.png)
 
@@ -202,6 +208,13 @@ To link to an issue in another repository, `user_name/repo_name#ISSUE_NUMBER` e.
 
 ![Cross-Link Issues](https://camo.githubusercontent.com/447e39ab8d96b553cadc8d31799100190df230a8/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f626c6f672f323031312f736563726574732f7265666572656e6365732e706e67)
 
+### CI Status on Pull Requests
+If set up correctly, every time you receive a Pull Request, [Travis CI](https://travis-ci.org/) will build that Pull Request just like it would every time you make a new commit. Read more about how to [get started with Travis CI](http://docs.travis-ci.com/user/getting-started/).
+
+[![Travic CI status](https://cloud.githubusercontent.com/assets/1687642/2700187/3a88838c-c410-11e3-9a46-e65e2a0458cd.png)](https://github.com/octokit/octokit.rb/pull/452)
+
+[*Read more about the commit status API.*](https://github.com/blog/1227-commit-status-api)
+
 ### Syntax Highlighting in Markdown Files
 For example, to syntax highlight Ruby code in your Markdown files write:
 
@@ -236,7 +249,7 @@ Would produce:
 
 :smile:
 
-The full list of supported Emojis on GitHub can be found [here](http://www.emoji-cheat-sheet.com/) or [here](https://github.com/scotch-io/All-Github-Emoji-Icons).
+The full list of supported Emojis on GitHub can be found at [emoji-cheat-sheet.com](http://www.emoji-cheat-sheet.com/) or [scotch-io/All-Github-Emoji-Icons](https://github.com/scotch-io/All-Github-Emoji-Icons).
 
 The top 5 used Ejmojis on GitHub are:
 
@@ -326,7 +339,7 @@ Within Jekyll pages and posts, repository information is available within the `s
 
 The Jemoji and jekyll-mentions plugins enable [emoji](#emojis) and [@mentions](https://github.com/blog/821) in your Jekyll posts and pages to work just like you'd expect when interacting with a repository on GitHub.com.
 
-[*Read more about repository metadata and plugin support for GitHub Pages.*](Repository metadata and plugin support for GitHub Pages)
+[*Read more about repository metadata and plugin support for GitHub Pages.*](https://github.com/blog/1797-repository-metadata-and-plugin-support-for-github-pages)
 
 ### Diffs
 #### Rendered Prose Diffs
@@ -354,17 +367,36 @@ Using the *unfold* button in the gutter of a diff, you can reveal additional lin
 
 [*Read more about expanding context in diffs.*](https://github.com/blog/1705-expanding-context-in-diffs)
 
-#### Getting content of Pull Request in Diff or Patch format
+#### Diff or Patch of Pull Request
+You can get the diff of a Pull Request by adding a `.diff` or `.patch`
+extension to the end of the URL. For example:
 
-You can get the diff of viewed pull request by adding `.diff` or `.patch`
-to the end of URL. For example:
+```
+https://github.com/tiimgreen/github-cheat-sheet/pull/15
+https://github.com/tiimgreen/github-cheat-sheet/pull/15.diff
+https://github.com/tiimgreen/github-cheat-sheet/pull/15.patch
+```
 
-*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15>
-*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15.diff> - the pull
-    request in DIFF format
-*   <https://github.com/tiimgreen/github-cheat-sheet/pull/15.patch> - the pull
-    request as PATCH
+The `.diff` extension would give you this in plain text:
 
+```
+diff --git a/README.md b/README.md
+index 88fcf69..8614873 100644
+--- a/README.md
++++ b/README.md
+@@ -28,6 +28,7 @@ All the hidden and not hidden features of Git and GitHub. This cheat sheet was i
+ - [Merged Branches](#merged-branches)
+ - [Quick Licensing](#quick-licensing)
+ - [TODO Lists](#todo-lists)
++- [Relative Links](#relative-links)
+ - [.gitconfig Recommendations](#gitconfig-recommendations)
+     - [Aliases](#aliases)
+     - [Auto-correct](#auto-correct)
+@@ -381,6 +382,19 @@ When they are clicked, they will be updated in the pure Markdown:
+ - [ ] Sleep
+
+(...)
+```
 
 ### Hub
 [Hub](https://github.com/github/hub) is a command line Git wrapper that gives you extra features and commands that make working with GitHub easier.
@@ -373,12 +405,6 @@ This allows you to do things like:
 
 ```bash
 $ hub clone tiimgreen/toc
-```
-
-...instead of:
-
-```bash
-$ git clone https://github.com/tiimgreen/toc.git
 ```
 
 [*Check out some more cool commands Hub has to offer.*](https://github.com/github/hub#commands)
@@ -431,6 +457,21 @@ $ git checkout -
 ```
 
 [*Read more about Git branching.*](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
+
+### Stripspace
+
+Git Stripspace:
+
+- Strips trailing whitespace
+- Collapses newlines
+- Adds newline to end of file
+
+A file must be passed when calling the command, e.g.:
+```bash
+$ git stripspace < README.md
+```
+
+[*Read more about the Git `stripspace` command.*](http://git-scm.com/docs/git-stripspace)
 
 ### Checking out Pull Requests
 If you want to check out pull request locally, you can fetch it using that command:
