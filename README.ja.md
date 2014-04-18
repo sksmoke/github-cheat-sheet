@@ -188,7 +188,7 @@ https://github.com/rails/rails/blob/master/activemodel/lib/active_model.rb#L53-L
 ![Line Highlighting](http://i.imgur.com/8AhjrCz.png)
 
 ### コミットからイシューを閉じる
-あるコミットでイシューを解決した場合、コミットメッセージで`fix/fixes/fixed`または`close/closes/closed`に続けてイシュー番号を指定すると、そのコミットがmasterブランチにpushされると同時に指定イシューが閉じられるだろう。
+あるコミットでイシューを解決した場合、コミットメッセージで`fix/fixes/fixed`や`close/closes/closed`、`resolve/resolves/resolved`に続けてイシュー番号を指定すると、そのコミットがmasterブランチにpushされると同時に指定イシューが閉じられるだろう。
 
 ```bash
 $ git commit -m "Fix cock up, fixes #12"
@@ -561,12 +561,14 @@ $ git status -sb
 以下のように実行すると:
 
 ```bash
-$ git log --all --graph --decorate --oneline --abbrev-commit
+$ git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 ```
 
 このように表示される:
 
-![git log --all --graph --decorate --oneline --abbrev-commit](http://i.imgur.com/RUPycwI.png)
+![git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative](http://i.imgur.com/R2z8l7c.png)
+
+この設定は[Palesz](http://stackoverflow.com/users/88355/palesz)が考えたものだ。
 
 *これは[後述の手順](#%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9)に従ってエイリアスへ追加することもできる。*
 
