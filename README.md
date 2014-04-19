@@ -4,6 +4,7 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
 ## Table of Contents
  - [GitHub](#github)
   - [Ignore Whitespace](#ignore-whitespace)
+  - [Adjust Tab Space](#adjust-tab-space)
   - [Commit History by Author](#commit-history-by-author)
   - [Cloning a Repository](#cloning-a-repository)
   - [Comparing Branches](#comparing-branches)
@@ -24,6 +25,8 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
   - [Task Lists](#task-lists)
   - [Relative Links](#relative-links)
   - [Metadata and Plugin Support for GitHub Pages](#metadata-and-plugin-support-for-github-pages)
+  - [Viewing YAML Metadata in your Documents](#viewing-yaml-metadata-in-your-documents)
+  - [Rendering Tabular Data](#rendering-tabular-data)
   - [Diffs](#diffs)
     - [Rendered prose Diffs](#rendered-prose-diffs)
     - [Diffable Maps](#diffable-maps)
@@ -58,6 +61,17 @@ Adding `?w=1` to any diff URL will remove any changes only in whitespace, enabli
 ![Diff without whitespace](https://camo.githubusercontent.com/797184940defadec00393e6559b835358a863eeb/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f626c6f672f323031312f736563726574732f776869746573706163652e706e67)
 
 [*Read more about GitHub secrets.*](https://github.com/blog/967-github-secrets)
+
+### Adjust Tab Space
+Adding `?ts=4` to a diff or file URL will display tab characters as 4 spaces wide instead of the default 8. The number after `ts` can be adjusted to suit your preference. This does not work on Gists, or raw file views.
+
+Here is a Go source file [before](https://github.com/pengwynn/flint/blob/master/flint/flint.go) adding `?ts=4`:
+
+![Before, tab space example](http://i.imgur.com/GIT1Fr0.png)
+
+...and this is [after](https://github.com/pengwynn/flint/blob/master/flint/flint.go?ts=4) adding `?ts=4`:
+
+![After, tab space example](http://i.imgur.com/70FL4H9.png)
 
 ### Commit History by Author
 To view all commits on a repo by author add `?author=username` to the URL.
@@ -340,6 +354,20 @@ Within Jekyll pages and posts, repository information is available within the `s
 The Jemoji and jekyll-mentions plugins enable [emoji](#emojis) and [@mentions](https://github.com/blog/821) in your Jekyll posts and pages to work just like you'd expect when interacting with a repository on GitHub.com.
 
 [*Read more about repository metadata and plugin support for GitHub Pages.*](https://github.com/blog/1797-repository-metadata-and-plugin-support-for-github-pages)
+
+### Viewing YAML Metadata in your Documents
+Many blogging websites, like [Jekyll](http://jekyllrb.com/) with [GitHub Pages](http://pages.github.com/), depend on some YAML-formatted metadata at the beginning of your post. GitHub will render this metadata as a horizontal table, for easier reading
+
+![YAML metadata](https://camo.githubusercontent.com/47245aa16728e242f74a9a324ce0d24c0b916075/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f36343035302f313232383236372f65303439643063362d323761302d313165332d396464382d6131636432323539393334342e706e67)
+
+[*Read more about viewing YAML metadata in your documents.*](https://github.com/blog/1647-viewing-yaml-metadata-in-your-documents)
+
+### Rendering Tabular Data
+GitHub supports rendering tabular data in the form of `.csv` (comma-separated) and `.tsv` (tab-separated) files.
+
+![Tabular data](https://camo.githubusercontent.com/1b6dd0157ffb45d9939abf14233a0cb13b3b4dfe/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f3238323735392f3937363436322f33323038336463652d303638642d313165332d393262322d3566323863313061353035392e706e67)
+
+[*Read more about rendering tabular data.*](https://github.com/blog/1601-see-your-csvs)
 
 ### Diffs
 #### Rendered Prose Diffs
@@ -641,19 +669,19 @@ To add an alias, either navigate to `~/.gitconfig` and fill it out in the follow
 ...or type in the command-line:
 
 ```bash
-$ git config alias.new_alias git_function
+$ git config --global alias.new_alias git_function
 ```
 
 For example:
 
 ```bash
-$ git config alias.cm commit
+$ git config --global alias.cm commit
 ```
 
 For an alias with multiple functions use quotes:
 
 ```bash
-$ git config alias.ac 'add -A . && commit'
+$ git config --global alias.ac 'add -A . && commit'
 ```
 
 Some useful aliases include:
