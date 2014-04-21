@@ -609,7 +609,7 @@ $ git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s 
 $ git show :/query
 ```
 
-`query`を検索したい文字列で置き換えると、最新のコミットがそのコミットにおける差分と同時に表示される。
+`query`を検索したい文字列（大文字と小文字を区別する）で置き換えると、最新のコミットがそのコミットにおける差分と同時に表示される。
 
 ```bash
 $ git show :/typo
